@@ -3,6 +3,7 @@ import React from "react";
 
 import { SessionProvider } from "next-auth/react";
 import { RecoilRoot } from "recoil";
+import { ThemeProvider } from "./theme-provider";
 
 export default function RootProvider({
   children,
@@ -11,7 +12,9 @@ export default function RootProvider({
 }) {
   return (
     <RecoilRoot>
-      <SessionProvider>{children}</SessionProvider>
+      <SessionProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>{children}</ThemeProvider>
+      </SessionProvider>
     </RecoilRoot>
   );
 }

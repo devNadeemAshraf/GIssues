@@ -8,6 +8,7 @@ export const handler = NextAuth({
       clientSecret: process.env.GITHUB_SECRET as string,
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET as string,
   session: {
     strategy: "jwt",
   },
